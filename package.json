@@ -1,0 +1,7 @@
+{
+  "name": "Wheels",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sam Greenhalgh <sam@radicalresearch.co.uk>",
+  "license": "MIT"
+}
