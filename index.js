@@ -13,7 +13,9 @@ function init(){
 
     // Create a gear train
     _gear = _rootGear;
-
+    for(var i = 0; i < 15; i++){
+        _gear = _gear.add(Math.ceil(0.5 + Math.random() * 50));
+    }
     // Place gears on a frame
     var frame = new Frame(canvas.height, canvas.width);
     _rootGear.accept(frame);
@@ -24,19 +26,13 @@ function init(){
     renderLoop();
 
     document.addEventListener('mousemove', (e) => {
-        _target = (e.clientX / document.documentElement.offsetWidth);
-    });
-
-    document.addEventListener('click', (e) => {
-        _gear = _gear.add(Math.ceil(0.5 + Math.random() * 50));
-        frame.clear();
-        _rootGear.accept(frame);
+        _target = (e.clientX / document.documentElement.offsetWidth) - 0.5;
     });
 
     setInterval(() => {
         var t = (_target * TWO_PI);
         var r = _rootGear.rotation;
-        _rootGear.rotate((t - _rootGear.rotation) * 0.25);
+        _rootGear.rotate(((t - _rootGear.rotation) * 0.25));
     }, 100);
 }
 
@@ -190,6 +186,8 @@ Scene.prototype.drawGear = function(x, y, radius, teeth, rotation) {
     this.context.stroke();
     this.context.closePath();
 
+    this.context.fillText(Math.round((rotation / TWO_PI) * 100), x, y);
+
     this.context.restore();
 }
 
@@ -226,7 +224,7 @@ Scene.prototype.render = function() {
     //     this.gearX + (radius * Math.sin(gear.rotation)),
     //     this.gearY + (radius * Math.cos(gear.rotation)));
 
-    // this.context.fillText(teeth, gear.x, gear.y);
+    // 
 
 
 
