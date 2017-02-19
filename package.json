@@ -5,7 +5,8 @@
   "author": "Sam Greenhalgh <sam@radicalresearch.co.uk>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack src/index.js dist/bundle.js"
+    "build": "webpack --devtool source-map src/index.js dist/bundle.js",
+    "dev": "webpack --devtool source-map --watch src/index.js dist/bundle.js "
   },
   "devDependencies": {
     "webpack": "^2.2.1"
