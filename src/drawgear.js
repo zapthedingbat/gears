@@ -2,8 +2,22 @@ const TWO_PI = Math.PI * 2;
 const TOOTH_DEPTH = 3;
 
 export function drawGear(context, x, y, radius, rotation, numberOfTeeth) {
+    drawPitch(context, x, y, radius + 5);
     drawTeeth(context, x, y, radius, rotation, numberOfTeeth);
     drawRotation(context, x, y, radius, rotation);
+}
+
+function drawPitch(context, x, y, radius){
+
+    context.save();
+    context.fillStyle = 'rgba(255, 255, 255, 0.25)';
+    
+    //context.beginPath();
+    context.arc(x, y, radius, 0, TWO_PI, false);
+    context.fill();
+    //context.closePath();
+
+    context.restore();
 }
 
 function drawTeeth(context, x, y, radius, rotation, numberOfTeeth){
