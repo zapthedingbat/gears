@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Sam Greenhalgh <sam@radicalresearch.co.uk>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack src/index.js dist/bundle.js"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
 }
